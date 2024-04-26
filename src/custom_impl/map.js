@@ -7,10 +7,10 @@ let myArr = [1,2,3,4];
 // console.log(mapOne);
 
 
-Array.prototype.customMap = function(callback){
+Array.prototype.customMap = function(callback,thisArg){
     var newArray = [];
     for( let index = 0;index < this.length;index++ ){
-        newArray.push(callback(this[index],index,this));
+        newArray.push(callback.call(thisArg,this[index],index,this));
     }
     return newArray;
 }

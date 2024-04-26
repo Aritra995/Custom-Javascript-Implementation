@@ -9,10 +9,10 @@ delete myArr[1];
 
 
 Array.prototype.customForEach = 
-    function customForEach(callback){
+    function customForEach(callback,thisArg){
         for( let index = 0; index < this.length;index++ ){
             if ( this.hasOwnProperty(index) ){
-                callback(this[index],index,this);
+                callback.call(thisArg,this[index],index,this);
             }
         }
     }
